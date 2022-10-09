@@ -18,10 +18,15 @@ class PopularScreen extends StatelessWidget {
       body: GetBuilder<PopularController>(
           initState: (state) { Get.find<PopularController>().getAll() ;},
           builder: (_) {
-            print('@@@ test ${_.popular.toString()}');
+            print('@@@ test ${_.popular.results.toString()}');
 
-            return PopularWidget(_.popular.results);
-
+            return ListView.builder(
+                itemCount: 1,
+                itemBuilder: (ctx,i) {
+                  return ListTile(
+                    title: Text('Title: ${_.popular.results[i].title}'),
+                  );
+                });
 
           }),
     );
