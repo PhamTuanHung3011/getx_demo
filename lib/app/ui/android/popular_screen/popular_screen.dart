@@ -20,13 +20,7 @@ class PopularScreen extends StatelessWidget {
           builder: (_) {
             print('@@@ test ${_.popular.results.toString()}');
 
-            return ListView.builder(
-                itemCount: 1,
-                itemBuilder: (ctx,i) {
-                  return ListTile(
-                    title: Text('Title: ${_.popular.results[i].title}'),
-                  );
-                });
+            return PopularWidget(_.popular.results ?? []);
 
           }),
     );

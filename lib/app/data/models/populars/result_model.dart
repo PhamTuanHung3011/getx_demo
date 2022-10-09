@@ -1,38 +1,40 @@
 import 'package:json_annotation/json_annotation.dart';
+
+import 'genre_ids_model.dart';
 part 'result_model.g.dart';
 
 @JsonSerializable()
 class Result {
   bool? adult;
-  String? backdropPath;
-  List<int>? genreIds;
+  String? backdrop_path;
+  List<GenreIds>? genreIdsList;
   int? id;
-  String? originalLanguage;
-  String? originalTitle;
+  String? original_language;
+  String? original_title;
   String? overview;
   double? popularity;
-  String? posterPath;
-  String? releaseDate;
+  String? poster_path;
+  DateTime? release_date;
   String? title;
   bool? video;
-  double? voteAverage;
-  int? voteCount;
+  double? vote_average;
+  int? vote_count;
 
   Result(
       { this.adult,
-       this.backdropPath,
-       this.genreIds,
+       this.backdrop_path,
+       this.genreIdsList,
        this.id,
-       this.originalLanguage,
-       this.originalTitle,
+       this.original_language,
+       this.original_title,
        this.overview,
        this.popularity,
-       this.posterPath,
-       this.releaseDate,
+       this.poster_path,
+       this.release_date,
        this.title,
        this.video,
-       this.voteAverage,
-       this.voteCount});
+       this.vote_average,
+       this.vote_count});
 
   factory Result.fromJson(Map<String, dynamic>json ) => _$ResultFromJson(json);
   Map<String, dynamic> toJson() => _$ResultToJson(this);

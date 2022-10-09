@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData(backgroundColor: Color(0xff67686D)),
       initialRoute: Routes.POPULAR,
       getPages: AppPage.pages,
 
