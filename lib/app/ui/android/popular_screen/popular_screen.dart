@@ -14,15 +14,14 @@ class PopularScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GetBuilder<PopularController>(
+    return GetBuilder<PopularController>(
           initState: (state) { Get.find<PopularController>().getAll() ;},
           builder: (_) {
             print('@@@ test ${_.popular.results.toString()}');
 
             return PopularWidget(_.popular.results ?? []);
 
-          }),
-    );
+          })
+    ;
   }
 }

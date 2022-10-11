@@ -7,8 +7,9 @@ import '../../../controller/popular_controller.dart';
 import '../popular_screen/popular_screen.dart';
 
 class PopularDetailScreen extends GetView<PopularController> {
-static const routeName = '/popular_detail_movie';
+  static const routeName = '/popular_detail_movie';
   final int? id;
+
   PopularDetailScreen({required this.id});
 
   @override
@@ -19,35 +20,46 @@ static const routeName = '/popular_detail_movie';
       appBar: AppBar(
         title: Text('detail screen'),
       ),
-
-      body
-          : Column(
+      body: Column(
         children: [
           Container(
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
             width: double.infinity,
             height: 500,
-            child: Image.network(resultData[index].poster_path.toString().replaceAll(RegExp(r'/'), 'https://image.tmdb.org/t/p/w500/'),fit: BoxFit.cover,),
+            child: Image.network(
+              resultData[index]
+                  .poster_path
+                  .toString()
+                  .replaceAll(RegExp(r'/'), 'https://image.tmdb.org/t/p/w500/'),
+              fit: BoxFit.cover,
+            ),
           ),
           Container(
-            child: Text('${index != -1 ? resultData[index].title : 'No Data'} '),
+            child:
+                Text('${index != -1 ? resultData[index].title : 'No Data'} '),
           ),
           Container(
-            child: Text(' Rateting: ${index != -1 ? resultData[index].vote_average : 'No Data'} '),
+            child: Text(
+                ' Rateting: ${index != -1 ? resultData[index].vote_average : 'No Data'} '),
           ),
           Container(
             width: 342,
             height: 187,
             child: Stack(
-              children:[Container(
-                width: 342,
-                height: 187,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0x00000000), Colors.black], ),
+              children: [
+                Container(
+                  width: 342,
+                  height: 187,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0x00000000), Colors.black],
+                    ),
+                  ),
                 ),
-              ),
                 Positioned.fill(
                   child: Align(
                     alignment: Alignment.topLeft,
@@ -56,14 +68,16 @@ static const routeName = '/popular_detail_movie';
                       height: 616.63,
                     ),
                   ),
-                ),],
+                ),
+              ],
             ),
           ),
-          TextButton(onPressed: () {
-            // Get.toNamed(PopularScreen.routeName);
-            Get.back();
-          }, child: Text('Back!')),
-
+          TextButton(
+              onPressed: () {
+                // Get.toNamed(PopularScreen.routeName);
+                Get.back();
+              },
+              child: Text('Back!')),
         ],
       ),
     );
